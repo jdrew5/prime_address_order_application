@@ -1,0 +1,18 @@
+<div ng-controller="AddressesController">
+
+    <select ng-model="user.user_id" ng-change="getAddresses(user)">
+            <option ng-repeat="user in users" value="{{user.user_id}}">{{user.name}}</option>
+    </select>
+
+    <div ng-repeat="address in addresses">
+        <div class="container well">
+            <div>{{address.address_type}}</div>
+            <div>{{address.address_street}}</div>
+            <div>{{address.address_city}}</div>
+            <div>{{address.address_state}}</div>
+            <div>{{address.address_zip}}</div>
+            <div>{{address.address_date_added}}</div>
+        </div>
+    </div>
+
+</div>

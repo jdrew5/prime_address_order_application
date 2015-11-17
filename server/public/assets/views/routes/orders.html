@@ -1,0 +1,30 @@
+<div ng-controller="OrdersController">
+
+    <form id="search">
+
+        <select ng-model="user.user_id">
+            <option ng-repeat="user in users" value="{{user.user_id}}">{{user.name}}</option>
+        </select>
+
+        <input ng-model="user.start_date" type="date" id="startDate" name="startDate" placeholder="Enter Start Date:">
+        <input ng-model="user.end_date" type="date" id="endDate" name="endDate" placeholder="Enter End Date:">
+
+    </form>
+    <button ng-click="getOrders(user)" id="submitSearch" class="btn btn-info">Submit</button>
+
+    <div ng-repeat="order in orders">
+        <div class="container well">
+            <div>{{order.order_id}}</div>
+            <div>{{order.order_date | date:'medium'}}</div>
+            <div>{{order.amount | currency}}</div>
+            <div>{{order.address_type}}</div>
+            <div>{{order.address_street}}</div>
+            <div>{{order.address_city}}</div>
+            <div>{{order.address_state}}</div>
+            <div>{{order.address_zip}}</div>
+        </div>
+    </div>
+
+    <div>Total Amount: {{totalAmount | currency}}</div>
+
+</div>
